@@ -1,4 +1,4 @@
-##A basic 'Hello World' NextJS app and Helm chart for deployment as a custom framework on HPE AI Essentials.
+## A basic 'Hello World' NextJS app and Helm chart for deployment as a custom framework on HPE AI Essentials.
 The app showcases the Oauth2 SSO functionality provided by AI Essentials.
 
 In the app source directory, build the app with 'docker build .' then tag and push the resulting image as needed.
