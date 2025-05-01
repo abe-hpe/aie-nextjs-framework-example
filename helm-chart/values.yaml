@@ -1,0 +1,44 @@
+replicaCount: 1
+
+image:
+  repository: abesharphpe/aie-nextjs-helloworld
+  pullPolicy: always
+  tag: "latest"
+
+serviceAccount:
+  create: true
+  automount: true
+
+autoscaling:
+  enabled: false
+
+service:
+  type: ClusterIP
+  port: 3000
+
+livenessProbe:
+  httpGet:
+    path: /
+    port: 3000
+readinessProbe:
+  httpGet:
+    path: /
+    port: 3000
+
+ezua:
+  oidc:
+    client_id: "${OIDC_CLIENT_ID}"
+    client_secret: "${OIDC_CLIENT_SECRET}"
+    domain: "${OIDC_DOMAIN}"
+    
+  domainName: "${DOMAIN_NAME}"
+
+  authorizationPolicy:
+    namespace: "istio-system"
+    providerName: "oauth2-proxy"
+    matchLabels:
+      istio: "ingressgateway"
+
+  virtualService:
+    endpoint: "njs-example.${DOMAIN_NAME}"
+    istioGateway: "istio-system/ezaf-gateway"
