@@ -2,8 +2,16 @@ replicaCount: 1
 
 image:
   repository: abesharphpe/aie-nextjs-helloworld
-  pullPolicy: always
+  pullPolicy: Always
   tag: "latest"
+
+ 
+postgresql:
+  enabled: true
+  auth:
+    username: myuser
+    password: mypass
+    database: mydb
 
 serviceAccount:
   create: true
@@ -42,3 +50,4 @@ ezua:
   virtualService:
     endpoint: "njs-example.${DOMAIN_NAME}"
     istioGateway: "istio-system/ezaf-gateway"
+
