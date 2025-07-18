@@ -33,21 +33,4 @@ readinessProbe:
     path: /
     port: 3000
 
-ezua:
-  oidc:
-    client_id: "${OIDC_CLIENT_ID}"
-    client_secret: "${OIDC_CLIENT_SECRET}"
-    domain: "${OIDC_DOMAIN}"
-    
-  domainName: "${DOMAIN_NAME}"
-
-  authorizationPolicy:
-    namespace: "istio-system"
-    providerName: "oauth2-proxy"
-    matchLabels:
-      istio: "ingressgateway"
-
-  virtualService:
-    endpoint: "njs-example.${DOMAIN_NAME}"
-    istioGateway: "istio-system/ezaf-gateway"
 
