@@ -5,9 +5,9 @@ metadata:
   namespace: {{ .Release.Namespace }}
 spec:
   gateways:
-    - {{ .Values.ezua.virtualService.istioGateway }}
+    - {{ .Values.kind.virtualService.istioGateway }}
   hosts:
-    - {{ .Values.ezua.virtualService.endpoint }}
+    - {{ .Values.kind.virtualService.endpoint }}
   http:
     - match:
         - uri:
