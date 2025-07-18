@@ -33,4 +33,9 @@ readinessProbe:
     path: /
     port: 3000
 
+kind:
+  domainName: "${DOMAIN_NAME}"
 
+  virtualService:
+    endpoint: "njs-example.kind"
+    istioGateway: "istio-system/litellm-gateway"
